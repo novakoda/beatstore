@@ -28,11 +28,12 @@ gem 'jbuilder', '~> 2.7'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
-gem 'paperclip', '~> 6.1'
+# Custom
 gem 'devise', '~> 4.8'
 gem 'bootstrap', '~> 5.0', '>= 5.0.1'
 gem 'sassc-rails', '~> 2.1', '>= 2.1.2'
 gem 'simple_form', '~> 5.1'
+
 
 gem 'activerecord-session_store', '~> 2.0'
 

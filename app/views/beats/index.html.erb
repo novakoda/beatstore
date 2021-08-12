@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Beats</h1>
+
+<ul class="list-group">
+  <% @beats.each do |beat| %>
+  <li class="list-group-item">
+    <%= beat.title %>
+    <%= beat.preview %>
+    <%= beat.cover %>
+    <%= beat.tempo %>
+    <%= beat.scale %>
+    <% beat.licenses.each do |license| %>
+      <%= license.name %>
+      <%= license.info %>
+      <%= license.price %>
+    <% end %>
+    <%= link_to 'Show', beat %>
+    <%= link_to 'Edit', edit_beat_path(beat) %>
+    <%= link_to 'Destroy', beat, method: :delete, data: { confirm: 'Are you sure?' } %>
+  <% end %>
+  </li>
+</ul>
+
+<br>
+<%= link_to 'New Beat', new_beat_path %>

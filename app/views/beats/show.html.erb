@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @beat.title %>
+</p>
+
+<p>
+  <strong>Preview:</strong>
+  <%= link_to @beat.preview.filename, @beat.preview if @beat.preview.attached? %>
+</p>
+
+<p>
+  <strong>Mp3:</strong>
+  <%= link_to @beat.mp3.filename, @beat.mp3 if @beat.mp3.attached? %>
+</p>
+
+<p>
+  <strong>Wav:</strong>
+  <%= link_to @beat.wav.filename, @beat.wav if @beat.wav.attached? %>
+</p>
+
+<p>
+  <strong>Free:</strong>
+  <%= @beat.free %>
+</p>
+
+<p>
+  <strong>Cover:</strong>
+  <%= link_to @beat.cover.filename, @beat.cover if @beat.cover.attached? %>
+</p>
+
+<p>
+  <strong>Tempo:</strong>
+  <%= @beat.tempo %>
+</p>
+
+<p>
+  <strong>Scale:</strong>
+  <%= @beat.scale %>
+</p>
+
+<%= link_to 'Edit', edit_beat_path(@beat) %> |
+<%= link_to 'Back', beats_path %>

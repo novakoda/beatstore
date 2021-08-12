@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_09_072810) do
+ActiveRecord::Schema.define(version: 2021_08_12_001041) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -33,6 +33,26 @@ ActiveRecord::Schema.define(version: 2021_08_09_072810) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
+  create_table "beats", force: :cascade do |t|
+    t.string "title"
+    t.decimal "tempo"
+    t.string "scale"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "licenses", force: :cascade do |t|
+    t.string "name"
+    t.text "info"
+    t.decimal "price", precision: 10, scale: 2
+    t.boolean "has_wav"
+    t.boolean "has_trackouts"
+    t.integer "beat_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["beat_id"], name: "index_licenses_on_beat_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -48,4 +68,5 @@ ActiveRecord::Schema.define(version: 2021_08_09_072810) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "licenses", "beats"
 end

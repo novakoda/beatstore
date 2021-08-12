@@ -1,0 +1,20 @@
+
+<%= simple_form_for(@beat, defaults: { input_html: { class: 'form-control' } } ) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="form-inputs">
+    <%= f.input :title %>
+    <%= f.input :preview %>
+    <%= f.input :mp3 %>
+    <%= f.input :wav %>
+    <%= f.input :free %>
+    <%= f.input :cover %>
+    <%= f.input :tempo %>
+    <%= f.input :scale %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, class: 'btn btn-primary' %>
+  </div>
+<% end %>
